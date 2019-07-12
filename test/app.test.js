@@ -18,7 +18,7 @@ describe('items routes', () => {
     
     it('returns the whole array of trails with GET', () => {
         return request(app)
-            .get('./api/v1/trails')
+            .get('/api/v1/trails')
             .then(res => {
                 expect(res.body).toEqual([{
                     name: 'PITA',
