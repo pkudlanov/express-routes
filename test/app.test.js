@@ -29,9 +29,22 @@ describe('items routes', () => {
             });
     });
 
-    it('returns specified object by id with get and id', () => {
+    it('returns specified object by id with GET and id', () => {
         return request(app)
             .get('/api/v1/trails/0')
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'PITA',
+                    type: 'Cross Country',
+                    distance: 7,
+                    painScale: 8
+                });
+            });
+    });
+
+    it('updates the trail object with PUT', () => {
+        return request(app)
+            .put('/api/v1/trails/0')
             .then(res => {
                 expect(res.body).toEqual({
                     name: 'PITA',
