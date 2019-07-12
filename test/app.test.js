@@ -62,4 +62,17 @@ describe('items routes', () => {
                 });
             });
     });
+
+    it('deletes the trail object with DELETE', () => {
+        return request(app)
+            .put('/api/v1/trails/0')
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'Fruit Loops',
+                    type: 'Road Run',
+                    distance: 9,
+                    painScale: 5
+                });
+            });
+    });
 });
