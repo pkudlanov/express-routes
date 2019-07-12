@@ -43,14 +43,22 @@ describe('items routes', () => {
     });
 
     it('updates the trail object with PUT', () => {
+        const newTrail = {
+            name: 'Fruit Loops',
+            type: 'Road Run',
+            distance: 9,
+            painScale: 5
+        };
+
         return request(app)
             .put('/api/v1/trails/0')
+            .send(newTrail)
             .then(res => {
                 expect(res.body).toEqual({
-                    name: 'PITA',
-                    type: 'Cross Country',
-                    distance: 7,
-                    painScale: 8
+                    name: 'Fruit Loops',
+                    type: 'Road Run',
+                    distance: 9,
+                    painScale: 5
                 });
             });
     });
