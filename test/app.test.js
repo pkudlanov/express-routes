@@ -28,4 +28,17 @@ describe('items routes', () => {
                 }]);
             });
     });
+
+    it('returns specified object by id with get and id', () => {
+        return request(app)
+            .get('/api/v1/trails/0')
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'PITA',
+                    type: 'Cross Country',
+                    distance: 7,
+                    painScale: 8
+                });
+            });
+    });
 });
